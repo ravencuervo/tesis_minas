@@ -18,18 +18,32 @@ export default function Navbar({ activeTab, setActiveTab, defenseMode, setDefens
       {/* Top corporate brand header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between">
         <div className="flex items-center space-x-4">
-          <div className="flex items-center">
+          {/* Logo y Nombre Coded en React tal cual la landing de Tesis Altiplánica */}
+          <div 
+            className="flex items-center space-x-2.5 sm:space-x-3 cursor-pointer group select-none"
+            onClick={() => setActiveTab('overview')}
+            title="Ir al inicio - Tesis Altiplánica"
+          >
             <img 
-              src="/images/navbar_brand.png" 
-              alt="Tesis Altiplánica - Consultoría de Tesis & Estadística" 
-              className="h-9 sm:h-11 w-auto object-contain cursor-pointer"
-              onClick={() => setActiveTab('overview')}
+              src="/images/tesis_logo.svg" 
+              alt="Logo Tesis Altiplánica" 
+              className="h-10 w-10 sm:h-11 sm:w-11 object-contain shrink-0 group-hover:scale-105 transition-transform duration-200"
             />
+            <div className="flex flex-col justify-center leading-none">
+              <div className="text-xl sm:text-[23px] font-black tracking-tight leading-none flex items-center">
+                <span className="text-[#020618] font-black">Tesis</span>
+                <span className="text-[#0052FF] font-black">Altiplánica</span>
+              </div>
+              <span className="text-[8.5px] sm:text-[9.5px] font-extrabold text-[#62748E] tracking-[0.16em] uppercase mt-1 leading-none">
+                CONSULTORÍA DE TESIS & ESTADÍSTICA
+              </span>
+            </div>
           </div>
-          <div className="hidden md:block h-6 w-px bg-slate-200"></div>
-          <div className="hidden md:flex flex-col">
+
+          <div className="hidden lg:block h-7 w-px bg-slate-200 ml-2"></div>
+          <div className="hidden lg:flex flex-col">
             <span className="text-xs font-bold text-slate-800 tracking-tight">GUÍA INTERACTIVA DE METODOLOGÍA & DEFENSA</span>
-            <span className="text-[11px] font-medium text-blue-600">UNAP - Escuela Profesional de Ingeniería de Minas</span>
+            <span className="text-[11px] font-medium text-[#0052FF]">UNAP • Escuela Profesional de Ingeniería de Minas</span>
           </div>
         </div>
 
@@ -39,7 +53,7 @@ export default function Navbar({ activeTab, setActiveTab, defenseMode, setDefens
             className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all shadow-xs ${
               defenseMode 
                 ? 'bg-amber-500 text-white shadow-amber-200 ring-2 ring-amber-300' 
-                : 'bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200'
+                : 'bg-blue-50 text-[#0052FF] hover:bg-blue-100 border border-blue-200'
             }`}
             title="Activar modo con respuestas clave y tips para el jurado"
           >

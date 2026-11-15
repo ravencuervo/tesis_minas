@@ -5,23 +5,29 @@ export default function Footer() {
     <footer className="mt-16 bg-[#020618] border-t border-slate-800 text-white py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-slate-800">
-          <div className="flex items-center space-x-4">
-            <div className="bg-white p-1.5 rounded-lg shadow-xs">
+          {/* Logo y Nombre Coded en React */}
+          <div className="flex items-center space-x-3.5 select-none">
+            <div className="bg-white/10 p-1.5 rounded-xl backdrop-blur-xs border border-white/15">
               <img 
-                src="/images/navbar_brand.png" 
-                alt="Tesis Altiplánica" 
-                className="h-8 sm:h-9 w-auto object-contain"
+                src="/images/tesis_logo.svg" 
+                alt="Logo Tesis Altiplánica" 
+                className="h-10 w-10 sm:h-11 sm:w-11 object-contain shrink-0" 
               />
             </div>
-            <div className="text-left">
-              <span className="text-sm font-bold text-white block">Tesis Altiplánica</span>
-              <span className="text-xs text-slate-400 block">Consultoría Integral de Tesis, Estadística & Minería</span>
+            <div className="flex flex-col justify-center text-left leading-none">
+              <div className="text-xl sm:text-2xl font-black tracking-tight leading-none flex items-center">
+                <span className="text-white font-black">Tesis</span>
+                <span className="text-[#3B82F6] font-black">Altiplánica</span>
+              </div>
+              <span className="text-[9px] sm:text-[10px] font-extrabold text-slate-400 tracking-[0.16em] uppercase mt-1 leading-none">
+                CONSULTORÍA DE TESIS & ESTADÍSTICA
+              </span>
             </div>
           </div>
 
           <div className="text-xs text-slate-400 text-center md:text-right space-y-0.5">
-            <p>Plataforma Metodológica para Bach. Mireya Yanina Deza Velarde</p>
-            <p className="text-blue-400 font-semibold">Escuela Profesional de Ingeniería de Minas • UNAP Puno</p>
+            <p>Plataforma Metodológica desarrollada para <strong className="text-white">Bach. Mireya Yanina Deza Velarde</strong></p>
+            <p className="text-[#3B82F6] font-semibold">Escuela Profesional de Ingeniería de Minas • UNAP Puno</p>
           </div>
         </div>
 
