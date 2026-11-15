@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BarChart3, CheckCircle2, AlertCircle, HelpCircle, Award, TrendingUp, Sparkles, Sliders } from 'lucide-react';
 import { statisticalTests } from '../data/thesisData';
+import MathFormula from './MathFormula';
 
 export default function StatisticsModule({ defenseMode }) {
   const [frentesInput, setFrentesInput] = useState(3);
@@ -92,7 +93,12 @@ export default function StatisticsModule({ defenseMode }) {
         <div>
           <span className="text-xs font-bold text-[#0052FF] uppercase tracking-wider block">Paso 2: Contrastación de la Hipótesis General</span>
           <h3 className="text-base font-bold text-slate-900 mt-1">Tabla 25. Resultados de la Contrastación Inferencial Pareada</h3>
-          <p className="text-xs text-slate-500">Comparación de medias pareadas para 90 días calendario (gl = 89, α = 0.05)</p>
+          <p className="text-xs text-slate-500">Formulación formal de la prueba t de Student para muestras pareadas:</p>
+        </div>
+
+        {/* Ecuación de t de Student en KaTeX */}
+        <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex justify-center items-center">
+          <MathFormula math="t = \frac{\bar{D} - \mu_0}{\frac{S_D}{\sqrt{n}}} = \frac{517.86 - 0}{\frac{2{,}283.45}{\sqrt{90}}} = 2.1513 \quad \left(gl = 89, \; p = 0.03416 < 0.05\right)" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -152,8 +158,8 @@ export default function StatisticsModule({ defenseMode }) {
 
             <h4 className="text-sm font-bold text-slate-900">Frentes de Minado Disponibles vs. Producción</h4>
 
-            <div className="p-3 rounded-xl bg-slate-900 text-emerald-300 font-mono text-center text-xs sm:text-sm">
-              Y = -6,993.68 + 16,052.20 × (Frentes)
+            <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-inner flex justify-center items-center">
+              <MathFormula math="\hat{Y} = -6{,}993.68 + 16{,}052.20 \times X_{\text{Frentes}}" />
             </div>
 
             <div className="text-xs text-slate-600 space-y-1">
@@ -192,8 +198,8 @@ export default function StatisticsModule({ defenseMode }) {
 
             <h4 className="text-sm font-bold text-slate-900">Demoras Operativas No Programadas vs. Producción</h4>
 
-            <div className="p-3 rounded-xl bg-slate-900 text-rose-300 font-mono text-center text-xs sm:text-sm">
-              Y = 41,502.41 - 873.70 × (Demoras)
+            <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-inner flex justify-center items-center">
+              <MathFormula math="\hat{Y} = 41{,}502.41 - 873.70 \times X_{\text{Demoras (horas)}}" />
             </div>
 
             <div className="text-xs text-slate-600 space-y-1">

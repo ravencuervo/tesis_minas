@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Calculator, Play, Info, AlertTriangle, CheckCircle, RefreshCw } from 'lucide-react';
 import { equipmentFleet } from '../data/thesisData';
+import MathFormula from './MathFormula';
 
 export default function FormulasModule({ defenseMode }) {
   // Estado para la calculadora de Match Factor
@@ -28,13 +29,14 @@ export default function FormulasModule({ defenseMode }) {
           </div>
           <div>
             <h2 className="text-xl font-bold text-slate-900">Modelos Matemáticos e Ingeniería de Minado</h2>
-            <p className="text-xs text-slate-500">Fundamentación matemática de ritmo de producción, valorización NSR y cinemática de flota</p>
+            <p className="text-xs text-slate-500">Renderizado matemático formal en LaTeX de las ecuaciones utilizadas en la tesis</p>
           </div>
         </div>
       </div>
 
-      {/* Grid de Ecuaciones */}
+      {/* Grid de Ecuaciones en LaTeX */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
         {/* Ecuación de Taylor */}
         <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs flex flex-col justify-between">
           <div className="space-y-3">
@@ -44,16 +46,16 @@ export default function FormulasModule({ defenseMode }) {
             </div>
             <h3 className="text-base font-bold text-slate-900">Regla de Taylor para Capacidad de Mina</h3>
             
-            <div className="p-4 rounded-xl bg-slate-900 text-blue-200 font-mono text-center text-sm sm:text-base tracking-wide">
-              Ritmo (Mt/año) = 0.013 × (Reservas)^0.75
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-inner flex justify-center items-center min-h-[75px]">
+              <MathFormula math="T = 0.013 \times \left( \text{Reservas} \right)^{0.75} \quad [\text{Mt/a\tilde{n}o}]" />
             </div>
 
             <p className="text-xs text-slate-600 leading-relaxed">
-              Establece la escala económica de extracción en función de las reservas geológicas totales. Para un depósito como NAS (aproximadamente 45 Mt de reservas explotables), determina una tasa nominal en el rango de 14.5 a 15.0 Mt/año, validando el ritmo programado de 3.73 Mt en el primer trimestre.
+              Establece la escala económica de extracción anual en función de las reservas explotables totales. Para un depósito de 45 Mt en el Proyecto NAS, determina un ritmo nominal de 14.5 a 15.0 Mt/año, validando el ritmo programado de 3.735 Mt para el primer trimestre (Q1).
             </p>
           </div>
           <div className="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500 italic">
-            Aplicada para verificar que el plan a corto plazo sea congruente con el ritmo óptimo del LOM.
+            Aplicada para verificar la coherencia entre el plan a corto plazo y la vida útil (LOM).
           </div>
         </div>
 
@@ -66,16 +68,16 @@ export default function FormulasModule({ defenseMode }) {
             </div>
             <h3 className="text-base font-bold text-slate-900">Regla Empírica de Long para LOM</h3>
             
-            <div className="p-4 rounded-xl bg-slate-900 text-blue-200 font-mono text-center text-sm sm:text-base tracking-wide">
-              LOM (años) = 0.20 × (Reservas)^0.25
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-inner flex justify-center items-center min-h-[75px]">
+              <MathFormula math="\text{LOM} = 0.20 \times \left( \text{Reservas} \right)^{0.25} \quad [\text{a\tilde{n}os}]" />
             </div>
 
             <p className="text-xs text-slate-600 leading-relaxed">
-              Modela la vida esperada de la mina (Life of Mine). Permite balancear la velocidad de profundización de los bancos en el Proyecto NAS (máximo 4 bancos de 10 m por año en la fase activa) frente al agotamiento racional del yacimiento.
+              Modela la vida esperada de la mina (Life of Mine). Permite balancear la velocidad máxima de profundización de bancos (máximo 4 bancos de 10 m por año en fase activa) frente al agotamiento racional del yacimiento.
             </p>
           </div>
           <div className="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500 italic">
-            Garantiza que la secuencia no acelere la extracción más allá del límite físico de rampas.
+            Garantiza que la secuencia no acelere la extracción más allá de los límites de acceso de rampa.
           </div>
         </div>
 
@@ -88,16 +90,16 @@ export default function FormulasModule({ defenseMode }) {
             </div>
             <h3 className="text-base font-bold text-slate-900">Ecuación NSR (Net Smelter Return)</h3>
             
-            <div className="p-3.5 rounded-xl bg-slate-900 text-blue-200 font-mono text-xs sm:text-sm text-center leading-relaxed">
-              NSR (US$/t) = Σ [ Ley_i × Rec_i × (Precio_i - Deducción_i) ] - Fletes - Maquila
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-inner flex justify-center items-center min-h-[75px]">
+              <MathFormula math="\text{NSR} = \sum_{i=1}^{n} \left[ \text{Ley}_i \times \text{Rec}_i \times (\text{Precio}_i - \text{Ded}_i) \right] - C_{\text{flete}} - C_{\text{maquila}}" />
             </div>
 
             <p className="text-xs text-slate-600 leading-relaxed">
-              Define el valor recuperable neto de cada bloque de mineral en el modelo de bloques. En el Proyecto NAS (Au-Cu), un bloque se clasifica como mineral de alimentación directa a planta si su NSR supera el costo de procesamiento y transporte (&gt; US$ 12.80/t).
+              Define el valor recuperable neto por tonelada de mineral (US$/t). En el Proyecto NAS (Au-Cu), un bloque se clasifica como mineral de alimentación directa a planta si su NSR supera el costo de procesamiento y transporte (&gt; US$ 12.80/t).
             </p>
           </div>
           <div className="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500 italic">
-            La simulación en MPAS prioriza frentes con mayor NSR para maximizar el VPN del trimestre.
+            La simulación en MPAS prioriza frentes con mayor NSR para optimizar el flujo de caja.
           </div>
         </div>
 
@@ -105,21 +107,40 @@ export default function FormulasModule({ defenseMode }) {
         <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs flex flex-col justify-between">
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-[#0052FF] uppercase tracking-wider">Dinámica de Transporte</span>
+              <span className="text-xs font-bold text-[#0052FF] uppercase tracking-wider">Cinemática de Transporte</span>
               <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-slate-100 text-slate-700">Hustrulid & Kuchta</span>
             </div>
-            <h3 className="text-base font-bold text-slate-900">Ciclo Total de Transporte de Camiones</h3>
+            <h3 className="text-base font-bold text-slate-900">Ciclo Total de Acarreo de Camiones</h3>
             
-            <div className="p-3.5 rounded-xl bg-slate-900 text-blue-200 font-mono text-xs sm:text-sm text-center leading-relaxed">
-              t_ciclo = t_maniobra + t_carga + t_ida(lleno) + t_descarga + t_retorno(vacío) + t_esperas
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-inner flex justify-center items-center min-h-[75px]">
+              <MathFormula math="t_{\text{ciclo}} = t_{\text{maniobra}} + t_{\text{carga}} + t_{\text{ida}} + t_{\text{descarga}} + t_{\text{retorno}} + t_{\text{esperas}}" />
             </div>
 
             <p className="text-xs text-slate-600 leading-relaxed">
-              Tiempo total requerido por un volquete CAT 777F para completar una vuelta entre el frente de carguío y la chancadora primaria o botadero. Una variación de 1 minuto por mal estado de vías representa una merma de más de 400 t/día en la flota.
+              Tiempo total requerido por un volquete CAT 777F para completar una vuelta entre el frente de carguío y la chancadora o botadero. Una variación de 1 minuto en el tiempo de ida por lluvias representa una merma de más de 400 t/día en la flota.
             </p>
           </div>
           <div className="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500 italic">
-            En la Semana 12, las lluvias aumentaron el tiempo de ida en 2.4 min por resistencia de rodadura.
+            En la Semana 12, las lluvias aumentaron el tiempo de ida en 2.4 min por resistencia a la rodadura.
+          </div>
+        </div>
+
+        {/* Factor de Acoplamiento (Match Factor) */}
+        <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-xs flex flex-col justify-between md:col-span-2">
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-bold text-[#0052FF] uppercase tracking-wider">Teoría de Colas y Flota</span>
+              <span className="text-[11px] font-semibold px-2 py-0.5 rounded bg-slate-100 text-slate-700">Equilibrio Pala-Camión</span>
+            </div>
+            <h3 className="text-base font-bold text-slate-900">Factor de Acoplamiento (Match Factor)</h3>
+            
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-inner flex justify-center items-center min-h-[75px]">
+              <MathFormula math="\text{MF} = \frac{N_{\text{camiones}} \times t_{\text{cargu\acute{\imath}o}}}{N_{\text{palas}} \times t_{\text{ciclo total}}}" />
+            </div>
+
+            <p className="text-xs text-slate-600 leading-relaxed">
+              El Match Factor relaciona la tasa de llegada de camiones con la tasa de servicio de la excavadora. Si <MathFormula math="\text{MF} = 1.0" block={false} />, el sistema opera en equilibrio perfecto. Si <MathFormula math="\text{MF} < 1.0" block={false} />, la pala espera camiones (pérdida de capacidad); si <MathFormula math="\text{MF} > 1.0" block={false} />, los camiones hacen cola esperando ser cargados (pérdida de combustible y horas motor).
+            </p>
           </div>
         </div>
       </div>
@@ -285,43 +306,6 @@ export default function FormulasModule({ defenseMode }) {
               </span>
             </div>
           </div>
-        </div>
-
-        {defenseMode && (
-          <div className="mt-5 p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-900">
-            <strong>Explicación para el Jurado:</strong> «El Match Factor del Proyecto NAS se calibró para operar en 1.00 en condiciones estándar (5 volquetes CAT 777F y 2 excavadoras). En la Semana 7 cayó a 0.85 por falta de frentes, provocando que las palas perdieran horas útiles esperando material.»
-          </div>
-        )}
-      </div>
-
-      {/* Flota de Equipos del Proyecto NAS */}
-      <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs">
-        <h3 className="text-base font-bold text-slate-900 mb-3">Flota de Equipos Mineros Considerada en la Simulación (Proyecto NAS)</h3>
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs">
-            <thead className="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
-              <tr>
-                <th className="py-2.5 px-3">Equipo Minero</th>
-                <th className="py-2.5 px-3 text-center">Cantidad</th>
-                <th className="py-2.5 px-3">Capacidad / Dimensión</th>
-                <th className="py-2.5 px-3 text-center">Disp. Diseño</th>
-                <th className="py-2.5 px-3 text-center">Uso Diseño</th>
-                <th className="py-2.5 px-3">Rol Operativo en la Secuencia</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100 text-slate-600">
-              {equipmentFleet.map((eq, idx) => (
-                <tr key={idx} className="hover:bg-slate-50/60">
-                  <td className="py-2 px-3 font-semibold text-slate-900">{eq.equipo}</td>
-                  <td className="py-2 px-3 text-center font-bold text-[#0052FF]">{eq.cantidad}</td>
-                  <td className="py-2 px-3">{eq.capacidadCuchara || eq.capacidadTolva || eq.diametro || eq.potencia || eq.anchoHoja || eq.capacidad}</td>
-                  <td className="py-2 px-3 text-center">{eq.disponibilidadDiseno}</td>
-                  <td className="py-2 px-3 text-center">{eq.utilizacionDiseno}</td>
-                  <td className="py-2 px-3 text-slate-500">{eq.rol}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
         </div>
       </div>
     </div>

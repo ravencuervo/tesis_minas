@@ -1,12 +1,77 @@
 import React, { useState } from 'react';
 import { projectInfo, consistencyMatrix, summaryTotals } from '../data/thesisData';
-import { CheckCircle2, Award, Calendar, Layers, MapPin, Users, HelpCircle, ArrowRight } from 'lucide-react';
+import { CheckCircle2, Award, Calendar, Layers, MapPin, Users, HelpCircle, ArrowRight, Info, BookOpen, Sparkles, ChevronRight } from 'lucide-react';
 
 export default function OverviewModule({ setActiveTab, defenseMode }) {
   const [activeMatrixTab, setActiveMatrixTab] = useState(0);
 
   return (
     <div className="space-y-8 animate-fadeIn">
+      {/* Banner de Inducción & Presentación Oficial de la Guía */}
+      <div className="rounded-2xl border border-blue-200 bg-gradient-to-r from-blue-50 via-indigo-50/70 to-white p-5 sm:p-6 shadow-xs space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-blue-100">
+          <div className="flex items-center space-x-2.5">
+            <div className="w-8 h-8 rounded-lg bg-[#0052FF] text-white flex items-center justify-center font-bold shrink-0">
+              <Info className="w-4 h-4" />
+            </div>
+            <div>
+              <span className="text-[11px] font-bold text-[#0052FF] uppercase tracking-wider block">Inducción y Propósito de la Plataforma</span>
+              <h2 className="text-sm sm:text-base font-bold text-slate-900">¿Qué es esta plataforma y qué procedimiento se realizó en la tesis?</h2>
+            </div>
+          </div>
+          <span className="text-[11px] font-bold text-slate-700 bg-white border border-slate-200 px-3 py-1 rounded-full shadow-2xs self-start sm:self-auto">
+            Bach. Mireya Yanina Deza Velarde • UNAP
+          </span>
+        </div>
+
+        <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+          En esta plataforma interactiva desarrollada por <strong>Tesis Altiplánica</strong> se presenta de forma detallada y didáctica la <strong>guía metodológica y estadística</strong> correspondiente a la tesis para optar el Título Profesional de Ingeniero de Minas. A continuación, se resume el procedimiento técnico ejecutado:
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
+          <div className="p-3 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-1">
+            <span className="font-bold text-[#0052FF] block text-xs">1. Caso de Estudio Q1</span>
+            <p className="text-slate-600 leading-snug">
+              Se evaluó el <strong>Proyecto NAS (Norte del Perú)</strong> durante 90 días calendario del primer trimestre 2027, con una meta determinística base de <strong>3,735,217.15 t</strong> (41,502.41 t/día).
+            </p>
+          </div>
+
+          <div className="p-3 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-1">
+            <span className="font-bold text-[#0052FF] block text-xs">2. Simulación en MinePlan</span>
+            <p className="text-slate-600 leading-snug">
+              Se modelaron 3 escenarios en <strong>MinePlan Activity Scheduler (MPAS)</strong> con restricciones de precedencia vertical, ancho de minado (35 m) y 57.64 horas de demoras registradas.
+            </p>
+          </div>
+
+          <div className="p-3 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-1">
+            <span className="font-bold text-[#0052FF] block text-xs">3. Tratamiento Estadístico</span>
+            <p className="text-slate-600 leading-snug">
+              Con Python se demostró significancia estadística mediante pruebas <strong>t de Student pareada</strong> y <strong>Wilcoxon</strong> (p &lt; 0.05), comprobando una merma de <strong>46,607 a 51,733 t</strong>.
+            </p>
+          </div>
+
+          <div className="p-3 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-1">
+            <span className="font-bold text-[#0052FF] block text-xs">4. Formato UNAP 2.0</span>
+            <p className="text-slate-600 leading-snug">
+              La tesis quedó formateada al 100% bajo la <strong>Guía 2.0 UNAP 2025</strong> (márgenes 3.5/2.5 cm, TNR 12 pt, 28 tablas, 10 figuras a 300 DPI y anexos institucionales).
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
+          <span className="text-[11px] text-slate-500 italic">
+            Usa el menú superior para navegar entre las fórmulas en LaTeX, los datos semanales, las figuras ampliables y el balotario del jurado.
+          </span>
+          <button
+            onClick={() => setActiveTab('defense')}
+            className="px-3.5 py-1.5 rounded-lg bg-[#0052FF] hover:bg-blue-700 text-white text-xs font-bold flex items-center space-x-1.5 transition-colors shadow-xs"
+          >
+            <span>Ver Preguntas Frecuentes del Jurado</span>
+            <ChevronRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      </div>
+
       {/* Hero Banner */}
       <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#020618] via-[#0A1A4A] to-[#0052FF] p-6 sm:p-8 text-white shadow-xl">
         <div className="relative z-10 max-w-4xl space-y-4">
