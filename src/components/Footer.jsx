@@ -30,55 +30,6 @@ export default function Footer() {
           Centro especializado en consultoría metodológica, análisis estadístico avanzado, bioestadística y publicación de artículos científicos con sede en Puno, Perú.
         </p>
 
-        {/* Redes Sociales Centradas */}
-        <div className="flex items-center justify-center space-x-3 mt-6">
-          <a 
-            href="https://facebook.com" 
-            target="_blank" 
-            rel="noreferrer" 
-            className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 hover:border-blue-500 hover:text-blue-400 flex items-center justify-center text-slate-300 text-xs font-bold transition-all shadow-xs"
-            title="Facebook"
-          >
-            f
-          </a>
-          <a 
-            href="https://instagram.com" 
-            target="_blank" 
-            rel="noreferrer" 
-            className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 hover:border-pink-500 hover:text-pink-400 flex items-center justify-center text-slate-300 text-xs font-bold transition-all shadow-xs"
-            title="Instagram"
-          >
-            ig
-          </a>
-          <a 
-            href="https://tiktok.com" 
-            target="_blank" 
-            rel="noreferrer" 
-            className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 hover:border-cyan-400 hover:text-cyan-300 flex items-center justify-center text-slate-300 text-xs font-bold transition-all shadow-xs"
-            title="TikTok"
-          >
-            tk
-          </a>
-          <a 
-            href="https://linkedin.com" 
-            target="_blank" 
-            rel="noreferrer" 
-            className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 hover:border-blue-400 hover:text-blue-300 flex items-center justify-center text-slate-300 text-xs font-bold transition-all shadow-xs"
-            title="LinkedIn"
-          >
-            in
-          </a>
-          <a 
-            href="https://wa.me/51958274958" 
-            target="_blank" 
-            rel="noreferrer" 
-            className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 hover:border-emerald-500 hover:text-emerald-400 flex items-center justify-center text-slate-300 text-xs font-bold transition-all shadow-xs"
-            title="WhatsApp"
-          >
-            wa
-          </a>
-        </div>
-
         {/* Línea divisoria */}
         <div className="w-full border-t border-slate-800/80 my-8"></div>
 

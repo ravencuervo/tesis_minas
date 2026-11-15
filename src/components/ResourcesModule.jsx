@@ -35,16 +35,16 @@ export default function ResourcesModule() {
         { 
           nombre: "02_Avance de borrador de tesis_final.docx", 
           desc: "Versión editable oficial en Word con estilos tipográficos UNAP 2.0 y macros de formato", 
-          tamano: "2.2 MB • En Custodia", 
+          tamano: "2.2 MB • Bloqueado", 
           isLocked: true,
-          badge: "Entrega contra Cancelación"
+          badge: "Bloqueado"
         },
         { 
           nombre: "02_Avance de borrador de tesis_UNAP_2.0.docx", 
           desc: "Versión formal editable para presentación a mesa de partes", 
-          tamano: "3.6 MB • En Custodia", 
+          tamano: "3.6 MB • Bloqueado", 
           isLocked: true,
-          badge: "Entrega contra Cancelación"
+          badge: "Bloqueado"
         },
         { 
           nombre: "01_Formato de Proyecto de Tesis-Mireya Deza.pdf", 
@@ -206,10 +206,10 @@ export default function ResourcesModule() {
                           type="button"
                           onClick={() => handleLockedClick(file.nombre)}
                           className="px-3 py-1.5 text-xs font-bold rounded-lg flex items-center space-x-1.5 shrink-0 transition-all text-amber-800 bg-amber-100 hover:bg-amber-200 border border-amber-300 shadow-xs cursor-pointer"
-                          title="Haga clic para ver el estado de entrega"
+                          title="Haga clic para ver el estado del archivo"
                         >
                           <Lock className="w-3.5 h-3.5 text-amber-700" />
-                          <span>En Custodia</span>
+                          <span>Bloqueado</span>
                         </button>
                       ) : (
                         <a
@@ -262,7 +262,7 @@ export default function ResourcesModule() {
         </div>
       </div>
 
-      {/* Modal Informativo de Archivo en Custodia */}
+      {/* Modal Informativo de Archivo Bloqueado */}
       {showLockModal && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fadeIn">
           <div className="bg-white rounded-2xl border border-slate-200 max-w-md w-full p-6 shadow-2xl relative space-y-4">
@@ -278,7 +278,7 @@ export default function ResourcesModule() {
             </div>
 
             <div className="text-center space-y-2">
-              <h3 className="text-lg font-bold text-slate-900">Archivo en Custodia Oficial</h3>
+              <h3 className="text-lg font-bold text-slate-900">Archivo Bloqueado</h3>
               <p className="text-xs font-semibold text-amber-700 bg-amber-50 px-3 py-1 rounded-full inline-block">
                 {lockedDocTitle}
               </p>
@@ -286,18 +286,18 @@ export default function ResourcesModule() {
                 El documento editable en Microsoft Word (.docx) con todas las macros de formato, estilos tipográficos del Repositorio UNAP 2.0 y tablas dinámicas está **100% terminado**.
               </p>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Por política de consultoría de <strong>Tesis Altiplánica</strong>, la versión editable final se entrega directamente tras la liquidación del saldo pendiente del servicio.
+                Por política de consultoría de <strong>Tesis Altiplánica</strong>, la versión editable final se desbloquea y entrega directamente tras la cancelación del saldo pendiente del servicio.
               </p>
             </div>
 
             <div className="pt-2 flex flex-col space-y-2">
               <a
-                href="https://wa.me/51958274958?text=Hola%20Tesis%20Altipl%C3%A1nica,%20deseo%20liquidar%20el%20saldo%20para%20la%20entrega%20del%20Word%20editable%20final."
+                href="https://wa.me/51958274958?text=Hola%20Tesis%20Altipl%C3%A1nica,%20deseo%20cancelar%20el%20saldo%20para%20desbloquear%20el%20Word%20editable%20final."
                 target="_blank"
                 rel="noreferrer"
                 className="w-full py-2.5 rounded-xl bg-[#0052FF] hover:bg-blue-700 text-white text-xs font-bold text-center shadow-xs transition-colors"
               >
-                Coordinar Liquidación y Entrega por WhatsApp
+                Coordinar Desbloqueo y Entrega por WhatsApp
               </a>
               <button
                 type="button"
