@@ -47,7 +47,7 @@ export default function FormulasModule({ defenseMode }) {
             <h3 className="text-base font-bold text-slate-900">Regla de Taylor para Capacidad de Mina</h3>
             
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-inner flex justify-center items-center min-h-[75px]">
-              <MathFormula math="T = 0.013 \times \left( \text{Reservas} \right)^{0.75} \quad [\text{Mt/a\tilde{n}o}]" />
+              <MathFormula math={String.raw`T = 0.013 \times \left( \text{Reservas} \right)^{0.75} \quad [\text{Mt/año}]`} />
             </div>
 
             <p className="text-xs text-slate-600 leading-relaxed">
@@ -69,7 +69,7 @@ export default function FormulasModule({ defenseMode }) {
             <h3 className="text-base font-bold text-slate-900">Regla Empírica de Long para LOM</h3>
             
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-inner flex justify-center items-center min-h-[75px]">
-              <MathFormula math="\text{LOM} = 0.20 \times \left( \text{Reservas} \right)^{0.25} \quad [\text{a\tilde{n}os}]" />
+              <MathFormula math={String.raw`\text{LOM} = 0.20 \times \left( \text{Reservas} \right)^{0.25} \quad [\text{años}]`} />
             </div>
 
             <p className="text-xs text-slate-600 leading-relaxed">
@@ -91,7 +91,7 @@ export default function FormulasModule({ defenseMode }) {
             <h3 className="text-base font-bold text-slate-900">Ecuación NSR (Net Smelter Return)</h3>
             
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-inner flex justify-center items-center min-h-[75px]">
-              <MathFormula math="\text{NSR} = \sum_{i=1}^{n} \left[ \text{Ley}_i \times \text{Rec}_i \times (\text{Precio}_i - \text{Ded}_i) \right] - C_{\text{flete}} - C_{\text{maquila}}" />
+              <MathFormula math={String.raw`\text{NSR} = \sum_{i=1}^{n} \left[ \text{Ley}_i \times \text{Rec}_i \times (\text{Precio}_i - \text{Ded}_i) \right] - C_{\text{flete}} - C_{\text{maquila}}`} />
             </div>
 
             <p className="text-xs text-slate-600 leading-relaxed">
@@ -113,7 +113,7 @@ export default function FormulasModule({ defenseMode }) {
             <h3 className="text-base font-bold text-slate-900">Ciclo Total de Acarreo de Camiones</h3>
             
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-inner flex justify-center items-center min-h-[75px]">
-              <MathFormula math="t_{\text{ciclo}} = t_{\text{maniobra}} + t_{\text{carga}} + t_{\text{ida}} + t_{\text{descarga}} + t_{\text{retorno}} + t_{\text{esperas}}" />
+              <MathFormula math={String.raw`t_{\text{ciclo}} = t_{\text{maniobra}} + t_{\text{carga}} + t_{\text{ida}} + t_{\text{descarga}} + t_{\text{retorno}} + t_{\text{esperas}}`} />
             </div>
 
             <p className="text-xs text-slate-600 leading-relaxed">
@@ -135,11 +135,11 @@ export default function FormulasModule({ defenseMode }) {
             <h3 className="text-base font-bold text-slate-900">Factor de Acoplamiento (Match Factor)</h3>
             
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-inner flex justify-center items-center min-h-[75px]">
-              <MathFormula math="\text{MF} = \frac{N_{\text{camiones}} \times t_{\text{cargu\acute{\imath}o}}}{N_{\text{palas}} \times t_{\text{ciclo total}}}" />
+              <MathFormula math={String.raw`\text{MF} = \frac{N_{\text{camiones}} \times t_{\text{carguío}}}{N_{\text{palas}} \times t_{\text{ciclo total}}}`} />
             </div>
 
             <p className="text-xs text-slate-600 leading-relaxed">
-              El Match Factor relaciona la tasa de llegada de camiones con la tasa de servicio de la excavadora. Si <MathFormula math="\text{MF} = 1.0" block={false} />, el sistema opera en equilibrio perfecto. Si <MathFormula math="\text{MF} < 1.0" block={false} />, la pala espera camiones (pérdida de capacidad); si <MathFormula math="\text{MF} > 1.0" block={false} />, los camiones hacen cola esperando ser cargados (pérdida de combustible y horas motor).
+              El Match Factor relaciona la tasa de llegada de camiones con la tasa de servicio de la excavadora. Si <MathFormula math={String.raw`\text{MF} = 1.0`} block={false} />, el sistema opera en equilibrio perfecto. Si <MathFormula math={String.raw`\text{MF} < 1.0`} block={false} />, la pala espera camiones (pérdida de capacidad); si <MathFormula math={String.raw`\text{MF} > 1.0`} block={false} />, los camiones hacen cola esperando ser cargados (pérdida de combustible y horas motor).
             </p>
           </div>
         </div>

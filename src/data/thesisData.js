@@ -10,10 +10,10 @@ export const projectInfo = {
   periodo: "Primer Trimestre 2027 (Q1, 90 días calendario)",
   software: "MinePlan Activity Scheduler (MPAS) + Soporte Analítico en Python",
   jurados: [
-    { cargo: "Presidente", nombre: "Dr. Jorge Gabriel Durant Broden", rol: "Especialista en Evaluación de Proyectos y Gestión Minera" },
-    { cargo: "Primer Miembro", nombre: "Ing. Juan Carlos Chayña Contreras", rol: "Especialista en Operaciones Mineras y Geomecánica" },
-    { cargo: "Segundo Miembro", nombre: "Ing. Abdul Ticona Fernandez", rol: "Especialista en Planeamiento y Métodos Computacionales" },
-    { cargo: "Director / Asesor", nombre: "Ing. Arturo Rafael Chayña Rodriguez", rol: "Docente Asesor Metodológico y Operacional" }
+    { cargo: "Presidente de Jurado", nombre: "Dr. Jorge Gabriel Durant Broden", institucion: "Docente Principal - Facultad de Ingeniería de Minas (UNAP)" },
+    { cargo: "Primer Miembro de Jurado", nombre: "Ing. Juan Carlos Chayña Contreras", institucion: "Docente - Facultad de Ingeniería de Minas (UNAP)" },
+    { cargo: "Segundo Miembro de Jurado", nombre: "Ing. Abdul Ticona Fernandez", institucion: "Docente - Facultad de Ingeniería de Minas (UNAP)" },
+    { cargo: "Director / Asesor de Tesis", nombre: "Ing. Arturo Rafael Chayña Rodriguez", institucion: "Docente Asesor - Facultad de Ingeniería de Minas (UNAP)" }
   ]
 };
 
@@ -133,7 +133,7 @@ export const statisticalTests = {
   regressions: [
     {
       nombre: "Modelo 1: Frentes de Minado vs. Producción Diaria",
-      ecuacion: "Y_hat = -6,993.68 + 16,052.20 * Frentes",
+      ecuacion: String.raw`\hat{Y} = -6{,}993.68 + 16{,}052.20 \times X_{\text{Frentes}}`,
       r2: 0.5490,
       r2Adj: 0.5439,
       rPearson: 0.7410,
@@ -143,7 +143,7 @@ export const statisticalTests = {
     },
     {
       nombre: "Modelo 2: Demoras Operativas vs. Producción Diaria",
-      ecuacion: "Y_hat = 41,502.41 - 873.70 * Demoras(h)",
+      ecuacion: String.raw`\hat{Y} = 41{,}502.41 - 873.70 \times X_{\text{Demoras (horas)}}`,
       r2: 0.5452,
       r2Adj: 0.5401,
       rPearson: -0.7384,
@@ -261,7 +261,7 @@ export const defenseQuestions = [
   {
     id: 1,
     jurado: "Dr. Jorge Gabriel Durant Broden",
-    perfil: "Especialista en Evaluación de Proyectos y Estadística",
+    cargo: "Presidente de Jurado",
     pregunta: "¿Por qué utilizó una prueba t de Student para muestras pareadas y no una prueba ANOVA o una prueba t para muestras independientes?",
     loQueBusca: "Verificar si la tesista domina el diseño experimental y la dependencia de las observaciones.",
     respuestaMaestra: "«Distinguido doctor, se seleccionó la prueba t de Student para muestras pareadas debido a que el diseño de investigación compara exactamente la misma unidad experimental (el día operativo t_i, desde el día 1 hasta el día 90) bajo dos tratamientos o condiciones de simulación distintos: el plan base ideal frente al escenario con consideraciones operativas. Al tratarse de los mismos días calendario, existe una correlación intrínseca temporal y espacial que invalida el supuesto de independencia de una prueba t tradicional o ANOVA entre grupos no relacionados. La prueba pareada evalúa la distribución de las diferencias diarias (D_i = Y_base - Y_simulado), controlando la variabilidad de bloque y maximizando la potencia estadística del contraste.»",
@@ -270,7 +270,7 @@ export const defenseQuestions = [
   {
     id: 2,
     jurado: "Ing. Juan Carlos Chayña Contreras",
-    perfil: "Especialista en Operaciones Mineras y Geomecánica",
+    cargo: "Primer Miembro de Jurado",
     pregunta: "En el Escenario 02 se observa una caída drástica en la Semana 7 y Semana 12. ¿A qué se debieron y por qué no pudieron recuperarse en las semanas siguientes?",
     loQueBusca: "Evaluar si conoce la realidad física del tajo o solo manejó números fríos.",
     respuestaMaestra: "«Ingeniero Chayña, la caída de la Semana 7 (94.36% de cumplimiento) fue provocada por la avería crítica del compresor de la perforadora primaria DM45. Al no contarse con suficiente presión de aire para perforar la malla de producción en el Banco 3400, no se pudo realizar el disparo programado, inhabilitando 2 frentes de carguío simultáneos y dejando a la pala CAT 390FL sin mineral quebrado disponible. La caída de la Semana 12 (94.62%) respondió a una restricción geotécnica por agrietamiento en la cresta del talud Nor-Este y trabajos de reacondicionamiento de la rampa principal tras precipitaciones. La razón por la que no se recupera el tonelaje acumulado en las semanas posteriores es que la capacidad de carguío y acarreo de la mina ya opera al 92% de utilización; no existía holgura de flota ociosa (camiones o palas adicionales) para absorber un déficit de más de 30 mil toneladas sin incurrir en sobrecostos no presupuestados.»",
@@ -279,7 +279,7 @@ export const defenseQuestions = [
   {
     id: 3,
     jurado: "Ing. Abdul Ticona Fernandez",
-    perfil: "Especialista en Planeamiento y Métodos Computacionales",
+    cargo: "Segundo Miembro de Jurado",
     pregunta: "¿Qué diferencia concreta existe entre planificar en AutoCAD mediante corte y relleno y realizar la simulación en MinePlan Activity Scheduler?",
     loQueBusca: "Comprobar que sabe cómo opera el algoritmo de MPAS.",
     respuestaMaestra: "«Ingeniero Ticona, la planificación convencional en CAD se limita a cubicaciones estáticas y volumétricas que ignoran la dinámica temporal y operativa. En cambio, MinePlan Activity Scheduler (MPAS) incorpora un motor de optimización que respeta restricciones operacionales duras: en primer lugar, las precedencias espaciales verticales (no permite minar un banco inferior si no se ha desbrozado el banco superior respetando el ancho de berma de 8.5 m); en segundo lugar, controla la tasa máxima de profundización y el ancho mínimo de minado (fijado en 35 m para el giro de camiones CAT 777F); y en tercer lugar, asigna rendimientos de flota dependientes de la distancia y perfil de transporte hacia planta o botadero. Esto convierte a MPAS en un simulador dinámico y no en un mero graficador volumétrico.»",
@@ -288,7 +288,7 @@ export const defenseQuestions = [
   {
     id: 4,
     jurado: "Dr. Jorge Gabriel Durant Broden",
-    perfil: "Especialista en Evaluación de Proyectos y Estadística",
+    cargo: "Presidente de Jurado",
     pregunta: "Si el cumplimiento del plan en el Escenario 02 fue de 98.75% y en el Escenario 03 fue de 98.61%, la desviación es de apenas 1.25% a 1.39%. ¿Por qué afirma que el impacto es crítico si faltó tan poco para el 100%?",
     loQueBusca: "Poner a prueba su criterio económico y de gestión minera.",
     respuestaMaestra: "«Excelente observación, Dr. Durant. Aunque un 98.75% parezca muy cercano a la meta a nivel trimestral, en la escala de una operación a tajo abierto ese 1.25% representa una merma física de 46,607 toneladas métricas en el Escenario 02 y 51,733 toneladas en el Escenario 03. A un costo de minado directo de 2.85 dólares por tonelada, el impacto en costos improductivos asciende a más de 132,000 a 147,000 dólares. Pero el impacto más grave es estratégico: como se demostró en la Figura 7, el promedio trimestral enmascara caídas semanales del 94.36%, lo que genera desabastecimiento en la ley de cabeza de la planta concentradora, altera el ratio de desbroce estéril/mineral y obliga a recurrir al mineral de stock de baja ley, degradando el flujo de caja del proyecto.»",
@@ -297,7 +297,7 @@ export const defenseQuestions = [
   {
     id: 5,
     jurado: "Ing. Juan Carlos Chayña Contreras",
-    perfil: "Especialista en Operaciones Mineras y Geomecánica",
+    cargo: "Primer Miembro de Jurado",
     pregunta: "¿Por qué en el modelo de regresión lineal entre Frentes y Producción el R² es de 0.549 y no superior al 90%? ¿Significa que el modelo es débil?",
     loQueBusca: "Evaluar si comprende el significado del coeficiente de determinación en procesos industriales.",
     respuestaMaestra: "«No, ingeniero Chayña; al contrario, un R² de 0.5490 con un valor p de 1.45e-16 es sumamente robusto para un entorno minero real. Significa que una sola variable operativa —el número de frentes activos— explica por sí sola casi el 55% de toda la fluctuación diaria de la mina. El 45% restante de la variabilidad corresponde a otros factores operacionales independientes, tales como las demoras por clima, variaciones en los tiempos de ciclo de los camiones, fragmentación de la roca por voladura y habilidades de los operadores. Intentar forzar un R² del 95% en minería a cielo abierto sería un síntoma de sobreajuste ficticio (*overfitting*).»",
@@ -306,7 +306,7 @@ export const defenseQuestions = [
   {
     id: 6,
     jurado: "Ing. Abdul Ticona Fernandez",
-    perfil: "Especialista en Planeamiento y Métodos Computacionales",
+    cargo: "Segundo Miembro de Jurado",
     pregunta: "¿Cómo calculó el Match Factor de la flota y qué ocurrió cuando dicho factor se alejó del valor 1.0?",
     loQueBusca: "Comprobar que maneja la teoría de colas y dimensionamiento de palas y camiones.",
     respuestaMaestra: "«Ingeniero Ticona, el Match Factor se determinó mediante la formulación clásica de Hustrulid: relacionando el número de camiones CAT 777F multiplicado por el tiempo de carguío de la pala, entre el número de excavadoras multiplicado por el tiempo total de ciclo de acarreo. Cuando el Match Factor se mantuvo en el rango óptimo de 0.98 a 1.02, el sistema operó en equilibrio. Sin embargo, en la Semana 7 el MF cayó a 0.85 (déficit de camiones para frentes activos), provocando que las palas quedaran en espera improductiva (*stand-by*); mientras que en la Semana 12 el MF subió a 1.15 al concentrarse la flota en menos accesos, provocando colas de camiones con pérdidas por consumo de combustible y tiempos muertos.»",

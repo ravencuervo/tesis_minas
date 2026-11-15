@@ -90,7 +90,7 @@ export default function DefenseSimulatorModule() {
                       <UserCheck className="w-3.5 h-3.5 text-slate-500" />
                       <span>{item.jurado}</span>
                     </span>
-                    <span className="text-[10px] text-slate-400 hidden sm:inline">• {item.perfil}</span>
+                    <span className="text-[10px] text-slate-400 hidden sm:inline">• {item.cargo}</span>
                   </div>
                   <h3 className="text-sm sm:text-base font-bold text-slate-900 leading-snug">
                     {item.pregunta}

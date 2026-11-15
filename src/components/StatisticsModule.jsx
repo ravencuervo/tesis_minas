@@ -96,9 +96,9 @@ export default function StatisticsModule({ defenseMode }) {
           <p className="text-xs text-slate-500">Formulación formal de la prueba t de Student para muestras pareadas:</p>
         </div>
 
-        {/* Ecuación de t de Student en KaTeX */}
+        {/* Ecuación de t de Student en KaTeX con String.raw */}
         <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex justify-center items-center">
-          <MathFormula math="t = \frac{\bar{D} - \mu_0}{\frac{S_D}{\sqrt{n}}} = \frac{517.86 - 0}{\frac{2{,}283.45}{\sqrt{90}}} = 2.1513 \quad \left(gl = 89, \; p = 0.03416 < 0.05\right)" />
+          <MathFormula math={String.raw`t = \frac{\bar{D} - \mu_0}{\frac{S_D}{\sqrt{n}}} = \frac{517.86 - 0}{\frac{2{,}283.45}{\sqrt{90}}} = 2.1513 \quad \left(gl = 89, \; p = 0.03416 < 0.05\right)`} />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -159,7 +159,7 @@ export default function StatisticsModule({ defenseMode }) {
             <h4 className="text-sm font-bold text-slate-900">Frentes de Minado Disponibles vs. Producción</h4>
 
             <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-inner flex justify-center items-center">
-              <MathFormula math="\hat{Y} = -6{,}993.68 + 16{,}052.20 \times X_{\text{Frentes}}" />
+              <MathFormula math={String.raw`\hat{Y} = -6{,}993.68 + 16{,}052.20 \times X_{\text{Frentes}}`} />
             </div>
 
             <div className="text-xs text-slate-600 space-y-1">
@@ -199,7 +199,7 @@ export default function StatisticsModule({ defenseMode }) {
             <h4 className="text-sm font-bold text-slate-900">Demoras Operativas No Programadas vs. Producción</h4>
 
             <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-inner flex justify-center items-center">
-              <MathFormula math="\hat{Y} = 41{,}502.41 - 873.70 \times X_{\text{Demoras (horas)}}" />
+              <MathFormula math={String.raw`\hat{Y} = 41{,}502.41 - 873.70 \times X_{\text{Demoras (horas)}}`} />
             </div>
 
             <div className="text-xs text-slate-600 space-y-1">
