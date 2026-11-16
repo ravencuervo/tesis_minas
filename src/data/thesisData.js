@@ -252,7 +252,7 @@ export const figuresList = [
     archivo: "figura_10_diagrama_flujo_simulacion_mineplan.png",
     tipo: "Flujograma Metodológico y Algorítmico",
     resumen: "Detalla la secuencia computacional desde la geología y modelo de bloques hasta la generación de reportes y reconciliación.",
-    queMuestra: "Estructura en 5 fases concatenadas: 1. Inputs (Modelo de bloques, geometrías CAD, topografía); 2. Configuración MPAS (restricciones espaciales y anchos de minado); 3. Parámetros Operativos (flotas, calendarios, geotecnia); 4. Simulación Multi-escenario; 5. Reconciliación analítica en Python.",
+    queMuestra: "Estructura en 5 fases concatenadas: 1. Inputs Geométricos y Modelo de Reservas; 2. Configuración en MPAS (reservas de polígonos, propiedades, PERVOL y dimensionamiento de flota); 3. Inyección y Parametrización de Escenarios Operativos; 4. Ejecución del Motor de Simulación y Secuenciamiento; 5. Reconciliación Espacial (Minado mensual vs. Plan mensual) y Analítica Computacional en Python.",
     comoDefender: "«El flujograma evidencia la rigurosidad científica del procedimiento: no se trató de una simple corrida de software, sino de un proceso iterativo con validación geotécnica, límites de capacidad de flota y control de calidad estadístico.»"
   }
 ];
