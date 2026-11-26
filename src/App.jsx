@@ -8,6 +8,7 @@ import FiguresModule from './components/FiguresModule';
 import StatisticsModule from './components/StatisticsModule';
 import DefenseSimulatorModule from './components/DefenseSimulatorModule';
 import ResourcesModule from './components/ResourcesModule';
+import DataTreatmentModule from './components/DataTreatmentModule';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -47,6 +48,9 @@ export default function App() {
         )}
         {activeTab === 'resources' && (
           <ResourcesModule />
+        )}
+        {activeTab === 'datatreatment' && (
+          <DataTreatmentModule defenseMode={defenseMode} />
         )}
       </main>
 

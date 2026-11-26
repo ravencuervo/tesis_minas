@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, BarChart3, Calculator, Cpu, ShieldAlert, Table, Image, Download, Sparkles } from 'lucide-react';
+import { BookOpen, BarChart3, Calculator, Cpu, ShieldAlert, Table, Image, Download, Sparkles, FlaskConical } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab, defenseMode, setDefenseMode }) {
   const navItems = [
@@ -9,6 +9,7 @@ export default function Navbar({ activeTab, setActiveTab, defenseMode, setDefens
     { id: 'data', label: 'Datos & Reconciliación', icon: Table },
     { id: 'figures', label: '10 Figuras 300 DPI', icon: Image },
     { id: 'statistics', label: 'Núcleo Estadístico', icon: BarChart3 },
+    { id: 'datatreatment', label: 'Tratamiento de Datos', icon: FlaskConical },
     { id: 'defense', label: 'Balotario de Jurados', icon: ShieldAlert },
     { id: 'resources', label: 'Descargas & Recursos', icon: Download },
   ];
