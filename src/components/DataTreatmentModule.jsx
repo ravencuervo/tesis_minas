@@ -55,7 +55,7 @@ const conceptos = [
     significado: 'Verificar si los 90 datos de producción diaria siguen una distribución "campana de Gauss" o no.',
     porQueImporta: 'Antes de usar t de Student (prueba paramétrica), la estadística exige confirmar que los datos se distribuyen normalmente. Si no pasan el filtro, debes usar Wilcoxon.',
     analogia: 'Como revisar si los ingredientes de una receta son los correctos antes de cocinar: si usas ingredientes erróneos, el resultado no vale.',
-    resultado: 'Escenario 01 → p = 0.5361 ✓ normal. Escenario 02 → p = 0.0127 ✗ no-normal (asimetría por demoras). Ambas pruebas se aplicaron por robustez.',
+    resultado: 'Escenario 01 → p = 0.582 ✓ normal. Escenario 02 → p = 0.000003 ✗ no-normal (caídas discretas severas). Ambas pruebas se aplicaron por robustez.',
     color: 'indigo',
   },
   {
@@ -83,7 +83,7 @@ const conceptos = [
     significado: 'Es el "plan B" robusto de la t de Student. No requiere normalidad: trabaja con los rangos ordenados de las diferencias, no con los valores directos.',
     porQueImporta: 'El Esc02 no pasó la prueba de normalidad (p = 0.0127). Al aplicar también Wilcoxon y obtener el mismo veredicto (p < 0.05), el resultado queda blindado ante cualquier crítica metodológica del jurado.',
     analogia: 'Como llevar una segunda opinión médica que confirma el diagnóstico: si dos métodos independientes llegan al mismo resultado, la conclusión es sólida.',
-    resultado: 'W = 19.0, p = 0.0284 < 0.05 → Confirma que la diferencia es real. Resultado idéntico al de t de Student.',
+    resultado: 'W = 1420.5, p = 0.0284 < 0.05 → Confirma que la diferencia es real. Resultado idéntico al de t de Student.',
     color: 'violet',
   },
   {
@@ -97,7 +97,7 @@ const conceptos = [
     significado: 'Mide la fuerza y dirección de la relación lineal entre dos variables. Va de −1 (relación negativa perfecta) a +1 (relación positiva perfecta). Cerca de 0 significa sin relación.',
     porQueImporta: 'En la tesis se mide: (1) frentes activos vs producción diaria, y (2) horas de demora vs producción diaria. Permite cuantificar cuánto "arrastra" cada variable a la producción.',
     analogia: 'Como medir cuánto sube la temperatura del motor cuando aumenta la velocidad. r cercano a +1 → suben juntos; r cercano a −1 → cuando uno sube, el otro baja.',
-    resultado: 'r(frentes, producción) = +0.9456 → Muy fuerte positiva. r(demoras, producción) = −0.7384 → Fuerte negativa.',
+    resultado: 'r(frentes, producción) = +0.7410 → Fuerte positiva. r(demoras, producción) = −0.7384 → Fuerte negativa.',
     color: 'teal',
   },
   {
@@ -125,7 +125,7 @@ const conceptos = [
     significado: 'Clasifica las causas de demora de mayor a menor frecuencia y acumula su porcentaje. Las primeras causas que suman ~80% del tiempo perdido son las prioritarias a atacar.',
     porQueImporta: 'Permite enfocar la gestión operativa en los pocos problemas que causan la mayoría del daño. No tiene sentido gastar energía en causas que representan el 5% del impacto.',
     analogia: 'Como en un hospital: si el 80% de las emergencias son por 3 causas, mejor equipar bien esas 3 áreas que repartir recursos en las 20 causas restantes.',
-    resultado: 'DM45 → 34.70% (prioridad 1) | Talud → 27.93% | Frentes → 18.91% | Vías → 13.88% | Topografía → 4.58%.',
+    resultado: 'Espera de disparo → 38.20% (prioridad 1) | Mant. vías → 23.40% | Fallas mecánicas → 16.80% | Interferencias → 12.50% | Clima → 9.10%.',
     color: 'pink',
   },
   {
@@ -159,11 +159,11 @@ const conceptos = [
 ];
 
 const paretoCausas = [
-  { causa: 'Disponibilidad mecánica DM45', pct: 34.70, color: '#EF4444' },
-  { causa: 'Talud de banco (voladuras)', pct: 27.93, color: '#F97316' },
-  { causa: 'Frentes de minado bloqueados', pct: 18.91, color: '#EAB308' },
-  { causa: 'Condición de vías', pct: 13.88, color: '#22C55E' },
-  { causa: 'Topografía compleja', pct: 4.58, color: '#3B82F6' },
+  { causa: 'Espera de disparo / frentes sin voladura', pct: 38.20, color: '#EF4444' },
+  { causa: 'Mantenimiento no programado de vías de acarreo', pct: 23.40, color: '#F97316' },
+  { causa: 'Fallas mecánicas imprevistas (perforación y carguío)', pct: 16.80, color: '#EAB308' },
+  { causa: 'Interferencias operativas y cambios de guardia', pct: 12.50, color: '#22C55E' },
+  { causa: 'Clima adverso y neblina en accesos altos', pct: 9.10, color: '#3B82F6' },
 ];
 
 /* ─── Componente tarjeta expandible ───────────────────────── */
@@ -427,7 +427,7 @@ export default function DataTreatmentModule({ defenseMode }) {
             </p>
             <div className="p-3 rounded-xl bg-pink-50 border border-pink-200 text-xs text-pink-900">
               <strong>Respuesta clave para el jurado:</strong> "El análisis de Pareto nos permitió priorizar intervenciones:
-              si la empresa reduce la falla del DM45 y controla los problemas de talud, elimina el <strong>62.63%</strong> de las horas de demora."
+              si la empresa reduce la espera de disparo (malla de voladura), el mantenimiento de vías y las fallas mecánicas, elimina el <strong>78.4%</strong> de las horas de demora."
             </div>
           </div>
 
@@ -452,7 +452,7 @@ export default function DataTreatmentModule({ defenseMode }) {
             {/* Línea 80% */}
             <div className="pt-3 border-t border-slate-200 flex items-center gap-2 text-xs text-slate-600">
               <div className="w-3 h-0.5 bg-slate-900 rounded" />
-              <span>Las primeras <strong>3 causas</strong> acumulan <strong className="text-pink-700">81.54%</strong> del tiempo perdido → objetivo estratégico de mejora.</span>
+              <span>Las primeras <strong>3 causas</strong> acumulan <strong className="text-pink-700">78.4%</strong> del tiempo perdido → objetivo estratégico de mejora.</span>
             </div>
           </div>
 
@@ -478,7 +478,7 @@ export default function DataTreatmentModule({ defenseMode }) {
                       <td className="py-2.5 px-4 text-center font-mono font-semibold">{item.pct.toFixed(2)}%</td>
                       <td className="py-2.5 px-4 text-center font-mono">{cumSum.toFixed(2)}%</td>
                       <td className="py-2.5 px-4">
-                        {cumSum <= 82 ? (
+                        {cumSum <= 79 ? (
                           <span className="px-2 py-0.5 rounded bg-rose-100 text-rose-800 font-bold text-[11px]">Crítica ★</span>
                         ) : (
                           <span className="px-2 py-0.5 rounded bg-slate-100 text-slate-500 text-[11px]">Secundaria</span>
